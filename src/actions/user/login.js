@@ -11,8 +11,10 @@ export const login = (username, password) => {
     dispatch(action.request());
     return axios.post(
         constants.baseEndpoint + 'passwordlogin',
-        qs.stringify({ username: username, password: password })
-      )
+        qs.stringify({
+          username: username,
+          password: password
+        }))
       .then((resp) => {
         dispatch(action.success(resp.data));
       })
